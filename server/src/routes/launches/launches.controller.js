@@ -32,11 +32,11 @@ async function httpAddNewLaunch(req, res) {
 
   // Date Validation
   if (isNaN(launch.launchDate)) {
-    res.status(400).json({
+    return res.status(400).json({
       error: "Invalid Launch Date",
     });
   } else if (launch.launchDate <= new Date()) {
-    res.status(400).json({
+    return res.status(400).json({
       error: "Launch Date should be in the future",
     });
   }
